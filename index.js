@@ -44,19 +44,51 @@ inquirer
 
       console.log(userInfo);
 
+      const readFile = (file, encoding) =>
+        new Promise(function(resolve, reject) {
+          fs.readFile(file, encoding, function(err, data) {
+            if (err) {
+              return reject(err);
+            }
+
+            resolve(data);
+          });
+        });
+
+      const writeFile = (file, data) =>
+        new Promise(function(resolve, reject) {
+          fs.writeFile(file, data, function(err) {
+            if (err) {
+              return reject(err);
+            }
+            resolve("Success");
+          });
+        });
+
+      const writeTemplate = async () => {
+        try {
+          let template = await readFile("./template.html", "utf8");
+          template = template.replace("{{colors}}", colors);
+          writeFile("./resume1.html", template);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      writeTemplate();
+
       //   const repoNames = res.data.map(function(repo) {
       //     return repo.name;
       //   });
 
       //   const repoNamesStr = repoNames.join("\n");
-      const resumeString = `<p style="${location};">Hello</p>`;
+      //   const resumeString = `<p style="${location};">Hello</p>`;
 
-      fs.writeFile("resume.html", resumeString, function(err) {
-        if (err) {
-          throw err;
-        }
+      //   fs.writeFile("resume.html", resumeString, function(err) {
+      //     if (err) {
+      //       throw err;
+      //     }
 
-        // console.log(`Saved ${repoNames.length} repos`);
-      });
+      //     // console.log(`Saved ${repoNames.length} repos`);
+      //   });
     });
   });
