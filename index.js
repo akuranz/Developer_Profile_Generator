@@ -20,23 +20,38 @@ inquirer
   .then(function({ username, colors }) {
     const queryUrl = `https://api.github.com/users/${username}`;
     axios.get(queryUrl).then(function(res) {
-      console.log(res);
-      console.log(res.data.location);
-      console.log(res.data.html_url);
-      console.log(res.data.blog);
-      console.log(res.data.bio);
-      console.log(res.data.public_repos);
-      console.log(res.data.followers);
-      console.log(res.data.following);
-      console.log(res.data.public_gists);
+      let userInfo = {
+        location: res.data.location,
+        profile: res.data.html_url,
+        blog: res.data.blog,
+        bio: res.data.bio,
+        repos: res.data.public_repos,
+        followers: res.data.followers,
+        following: res.data.following,
+        stars: res.data.public_gists
+      };
+
+      let {
+        location,
+        profile,
+        blog,
+        bio,
+        repos,
+        followers,
+        following,
+        stars
+      } = userInfo;
+
+      console.log(userInfo);
+
       //   const repoNames = res.data.map(function(repo) {
       //     return repo.name;
       //   });
 
       //   const repoNamesStr = repoNames.join("\n");
-      const repoNamesStr = `<p style="${colors};">Hello</p>`;
+      const resumeString = `<p style="${location};">Hello</p>`;
 
-      fs.writeFile("resume.html", repoNamesStr, function(err) {
+      fs.writeFile("resume.html", resumeString, function(err) {
         if (err) {
           throw err;
         }
