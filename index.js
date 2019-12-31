@@ -20,7 +20,10 @@ inquirer
   .then(function({ username, colors }) {
     const queryUrl = `https://api.github.com/users/${username}`;
     axios.get(queryUrl).then(function(res) {
+      console.log(res);
       let userInfo = {
+        name: res.data.name,
+        company: res.data.company,
         location: res.data.location,
         profile: res.data.html_url,
         blog: res.data.blog,
@@ -32,6 +35,8 @@ inquirer
       };
 
       let {
+        name,
+        company,
         location,
         profile,
         blog,
@@ -65,16 +70,18 @@ inquirer
           });
         });
 
-      const writeTemplate = async () => {
+      const writeResume = async () => {
         try {
           let template = await readFile("./template.html", "utf8");
-          template = template.replace("{{colors}}", colors);
-          writeFile("./resume1.html", template);
+          template = template.replace("{colors}", colors);
+          template = template.replace("{name}", name);
+          template = template.replace("{company}", company);
+          writeFile("./resume.html", template);
         } catch (error) {
           console.log(error);
         }
       };
-      writeTemplate();
+      writeResume();
 
       //   const repoNames = res.data.map(function(repo) {
       //     return repo.name;

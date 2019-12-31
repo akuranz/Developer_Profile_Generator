@@ -6,29 +6,60 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
   </head>
-  <!-- <style>
-    .headerBg {
-      width: 100px;
+  <style>
+    body {
+      margin: auto;
+    }
+    .header-background {
+      width: 100%;
       height: 400px;
       background-color: #4f868e;
+      margin: none !important;
     }
-  </style> -->
+    .footer-background {
+      width: 100%;
+      height: 400px;
+      background-color: #4f868e;
+      margin: none !important;
+    }
+    .profile-background {
+      width: 90%;
+      height: auto;
+      background-color: pink; /*placeholder for variable data*/
+      text-align: center;
+      border-radius: 5px;
+      margin: auto;
+      position: relative;
+      top: 100px;
+      padding: 25px;
+    }
+    #profile-img {
+      width: 250px;
+      height: 250px;
+      border: 5px solid yellow;
+      border-radius: 50%;
+    }
+    .profile-info {
+      text-align: center;
+    }
+  </style>
   <body>
-    <!-- <div class="headerBg"></div>
-    <div class="report-header">
-      <h3>"Hi!"</h3>
-      <h3>"My name is" + {{title}} + "!"</h3>
-      <p>"Currently @" + {{date}} +</p>
+    <div class="header-background">
+      <div class="profile-background">
+        <div>
+          <img id="profile-img" src="./assets/abby-kuranz-2019.jpg" />
+          <h3>Hi!</h3>
+          <h3>My name is {name}!</h3>
+          <p>Currently @ {company}</p>
+        </div>
+        <div>
+          {location} GitHub Blog
+        </div>
+      </div>
     </div>
-    <div
-      class="headerMain"
-      style="width: 100%; height: 200px; background-color: blue;"
-    >
-      <div
-        style="width: 10%; height: 10%; border: 5px; border-radius: 50px;
-          border-color: yellow; text-align: center;"
-      ></div>
-    </div> -->
-    <div><p>{{colors}}</p></div>
+    <div class="profile-info">
+      <p>{bio}</p>
+    </div>
+    <div class="footer-background"></div>
   </body>
 </html>
