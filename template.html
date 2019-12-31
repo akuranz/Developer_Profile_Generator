@@ -6,11 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Document</title>
   </head>
+  <style>
+    .headerBg {
+      width: 100px;
+      height: 400px;
+      background-color: #4f868e;
+    }
+  </style>
   <body>
-    <div
-      class="headerBg"
-      style="width: 100%; height: 400px; background-color: #4f868e;"
-    ></div>
+    <div class="headerBg"></div>
+    <div class="report-header">
+      <h3>"Hi!"</h3>
+      <h3>"My name is" + {{title}} + "!"</h3>
+      <p>"Currently @" + {{date}} +</p>
+    </div>
     <div
       class="headerMain"
       style="width: 100%; height: 200px; background-color: blue;"
