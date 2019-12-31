@@ -1,6 +1,7 @@
-const inquirer = require("inquirer");
 const fs = require("fs");
 const axios = require("axios");
+const inquirer = require("inquirer");
+// const puppeteer = require("puppeteer");
 
 inquirer
   .prompt([
@@ -16,12 +17,22 @@ inquirer
       choices: ["blue", "red", "green", "yellow"]
     }
   ])
-  .then(function(response) {
-    fs.writeFile("log.txt", response.colors, function(err) {
-      if (err) {
-        return console.log(err);
-      }
+  .then(function({ username, colors }) {
+    const queryUrl = `https://api.github.com/users/${username}/repos?per_page=100`;
+    axios.get(queryUrl).then(function(res) {
+      const repoNames = res.data.map(function(repo) {
+        return repo.name;
+      });
 
-      console.log("Success!");
+      //   const repoNamesStr = repoNames.join("\n");
+      const repoNamesStr = `<p style="${colors};">Hello</p>`;
+
+      fs.writeFile("repos.txt", repoNamesStr, function(err) {
+        if (err) {
+          throw err;
+        }
+
+        console.log(`Saved ${repoNames.length} repos`);
+      });
     });
   });
