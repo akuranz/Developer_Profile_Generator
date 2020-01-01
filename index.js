@@ -14,7 +14,7 @@ inquirer
       type: "list",
       message: "What is your favorite color?",
       name: "colors",
-      choices: ["blue", "red", "green", "yellow"]
+      choices: ["pink", "maroon", "green", "teal", "navy"]
     }
   ])
   .then(function({ username, colors }) {
@@ -31,7 +31,8 @@ inquirer
         repos: res.data.public_repos,
         followers: res.data.followers,
         following: res.data.following,
-        stars: res.data.public_gists
+        stars: res.data.public_gists,
+        avatar: res.data.avatar_url
       };
 
       let {
@@ -44,7 +45,8 @@ inquirer
         repos,
         followers,
         following,
-        stars
+        stars,
+        avatar
       } = userInfo;
 
       console.log(userInfo);
@@ -73,9 +75,17 @@ inquirer
       const writeResume = async () => {
         try {
           let template = await readFile("./template.html", "utf8");
-          template = template.replace("{colors}", colors);
+          template = template.replace("/colors/g", colors);
           template = template.replace("{name}", name);
           template = template.replace("{company}", company);
+          template = template.replace("{profile}", profile);
+          template = template.replace("{location}", location);
+          template = template.replace("{bio}", bio);
+          template = template.replace("{repos}", repos);
+          template = template.replace("{followers}", followers);
+          template = template.replace("{stars}", stars);
+          template = template.replace("{following}", following);
+          template = template.replace("{avatar}", avatar);
           writeFile("./resume.html", template);
         } catch (error) {
           console.log(error);

@@ -4,28 +4,139 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
     <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/c875ce7059.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <style>
+    body {
+      margin: auto;
+    }
+    h3 {
+      font-size: 40px;
+      line-height: 40px;
+      color: #fff;
+      margin: 10px;
+    }
+    p {
+      font-size: 25px;
+      color: #fff;
+    }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+    table {
+      text-align: center;
+      margin: 0 auto;
+      margin-top: 25px;
+      font-size: 25px;
+      color: white;
+    }
+    td {
+      padding: 30px;
+      width: 400px;
+      background-color: / colors/; /*placeholder for variable data*/
+      margin: 25px !important;
+      border-radius: 5px;
+    }
+
     .header-background {
       width: 100%;
       height: 400px;
-      background-color: #4f868e;
+      background-color: #7659cf;
+    }
+    .footer-background {
+      width: 100%;
+      height: 400px;
+      background-color: #7659cf;
+      margin-top: 250px;
     }
     .profile-background {
-      width: 100%;
-      height: 300px;
-      background-color: pink;
+      width: 90%;
+      height: auto;
+      background-color: / colors/; /*placeholder for variable data*/
+      text-align: center;
+      border-radius: 5px;
+      margin: auto;
+      position: relative;
+      top: 100px;
+    }
+    .profile-info {
+      text-align: center;
+      position: relative;
+      top: -75px;
+    }
+
+    #profile-img {
+      width: 250px;
+      height: 250px;
+      border: 7px solid #eda413;
+      border-radius: 50%;
+      /* position: relative;
+      top: -100px; */
+    }
+    .profile-stats {
+      text-align: center;
+      clear: both;
+      position: relative;
+      bottom: -175px;
+    }
+    #bio {
+      color: black;
+      margin: auto;
+      width: 80%;
     }
   </style>
   <body>
-    <div class="header-background"></div>
-    <div class="profile-background">
-      <h3>"Hi!"</h3>
-      <h3>"My name is" + Abby Kuranz + "!"</h3>
-      <p>"Currently @" + Western Resource Advocates +</p>
+    <div class="row">
+      <div class="col-md header-background">
+        <div class="profile-background">
+          <div class="profile-info">
+            <img id="profile-img" src="https://avatars0.githubusercontent.com/u/10914759?v=4" />
+            <h3>Hi!</h3>
+            <h3>My name is Abby Kuranz!</h3>
+            <p>Currently @ Western Resource Advocates</p>
+            <p>
+              <i class="fas fa-location-arrow"></i> Denver, CO
+              <a href="https://github.com/akuranz" target="_blank"
+                ><i class="fab fa-github"></i> GitHub</a
+              >
+              <a href="{blog}" target="_blank"
+                ><i class="fas fa-rss"></i> Blog</a
+              >
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
+    <div class="row">
+      <div class="col-md profile-stats">
+        <p id="bio">Driven and dedicated DIGITAL MARKETING PROFESSIONAL with strong analytical and design skills, and a passion for working with nonprofits. </p>
+        <table>
+          <tr>
+            <td>Public Repositories<br />17</td>
+            <td>Followers<br />11</td>
+          </tr>
+          <tr>
+            <td>GitHub Stars<br />0</td>
+            <td>Following<br />13</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row footer-background"></div>
   </body>
 </html>
-
-<!-- <div><p style="color: blue;">Hello!</p></div> -->
