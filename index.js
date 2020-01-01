@@ -20,7 +20,7 @@ inquirer
   .then(function({ username, colors }) {
     const queryUrl = `https://api.github.com/users/${username}`;
     axios.get(queryUrl).then(function(res) {
-      console.log(res);
+      // console.log(res);
       let userInfo = {
         name: res.data.name,
         company: res.data.company,
