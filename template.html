@@ -48,9 +48,12 @@
     td {
       padding: 30px;
       width: 400px;
-      background-color: {colors}; /*placeholder for variable data*/
+      /*background-color: / colors/g; /*placeholder for variable data*/
       margin: 25px !important;
       border-radius: 5px;
+    }
+    .color-choice {
+      background-color: {colors};
     }
 
     .header-background {
@@ -67,7 +70,7 @@
     .profile-background {
       width: 90%;
       height: auto;
-      background-color: {colors}; /*placeholder for variable data*/
+      /*background-color: / colors/g; /*placeholder for variable data*/
       text-align: center;
       border-radius: 5px;
       margin: auto;
@@ -103,7 +106,7 @@
   <body>
     <div class="row">
       <div class="col-md header-background">
-        <div class="profile-background">
+        <div class="profile-background color-choice">
           <div class="profile-info">
             <img id="profile-img" src="{avatar}" />
             <h3>Hi!</h3>
@@ -127,12 +130,12 @@
         <p id="bio">{bio}</p>
         <table>
           <tr>
-            <td>Public Repositories<br />{repos}</td>
-            <td>Followers<br />{followers}</td>
+            <td class="color-choice">Public Repositories<br />{repos}</td>
+            <td class="color-choice">Followers<br />{followers}</td>
           </tr>
           <tr>
-            <td>GitHub Stars<br />{stars}</td>
-            <td>Following<br />{following}</td>
+            <td class="color-choice">GitHub Stars<br />{stars}</td>
+            <td class="color-choice">Following<br />{following}</td>
           </tr>
         </table>
       </div>

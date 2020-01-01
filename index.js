@@ -75,7 +75,7 @@ inquirer
       const writeResume = async () => {
         try {
           let template = await readFile("./template.html", "utf8");
-          template = template.replace("/colors/g", colors);
+          template = template.replace("{colors}", colors);
           template = template.replace("{name}", name);
           template = template.replace("{company}", company);
           template = template.replace("{profile}", profile);
@@ -92,20 +92,5 @@ inquirer
         }
       };
       writeResume();
-
-      //   const repoNames = res.data.map(function(repo) {
-      //     return repo.name;
-      //   });
-
-      //   const repoNamesStr = repoNames.join("\n");
-      //   const resumeString = `<p style="${location};">Hello</p>`;
-
-      //   fs.writeFile("resume.html", resumeString, function(err) {
-      //     if (err) {
-      //       throw err;
-      //     }
-
-      //     // console.log(`Saved ${repoNames.length} repos`);
-      //   });
     });
   });
